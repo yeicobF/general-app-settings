@@ -155,3 +155,9 @@ source $ZSH/oh-my-zsh.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Variable de entorno que le informa a GPG del shell actual.
+# Esto es para firmar los commits y demás.
+# Obtenido de: "Aprendiendo Git", Miguel Ángel Durán
+# - Lunes, 28 de febrero de 2022
+export GPG_TTY=$(tty)
