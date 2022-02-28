@@ -121,7 +121,7 @@ plugins=(
 	# is_json: regresa true si es json válido, false si no.
 	# Entre otros comandos.
 	jsontools
-
+	docker
 )
 
 source $ZSH/oh-my-zsh.sh
