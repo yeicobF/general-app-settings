@@ -122,6 +122,7 @@ plugins=(
 	# Entre otros comandos.
 	jsontools
 	docker
+	docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -161,3 +162,9 @@ export NVM_DIR="$HOME/.nvm"
 # Obtenido de: "Aprendiendo Git", Miguel Ángel Durán
 # - Lunes, 28 de febrero de 2022
 export GPG_TTY=$(tty)
+
+# Oh My Posh - Estilo diferente en terminal
+# Martes, 01 de marzo de 2022
+eval "$(oh-my-posh --init --shell zsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/v$(oh-my-posh --version)/themes/jandedobbeleer.omp.json)"
+
+# export $TERM="xterm-256color"

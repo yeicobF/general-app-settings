@@ -1,0 +1,5 @@
+Jueves, 10 de diciembre del 2020 [00:55AM]
+
+El '.vimrc' que está en esta carpeta lo saqué de mi
+configuración del Vim de Cygwin. Intentaré aplicar la misma
+en el NVIM.

@@ -1,4 +1,1 @@
-*
-!.zshrc
-!.bashrc
-!.gitignore
+nvim/plugged/*/.gitignore

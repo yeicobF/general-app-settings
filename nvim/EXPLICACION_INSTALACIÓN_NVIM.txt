@@ -1,0 +1,171 @@
+EXPLICACIÓN INSTALACIÓN NVIM:
+
+ - Jueves, 10 de diciembre del 2020 [00:00AM]
+
+Instalé NVIM en Windows, que es un editor de texto que
+tomó como base VIM para su creación, ya que es
+un Fork de este. Tiene muchas cosas interesantes.
+
+Vi un vídeo que explica las diferencias/historia de
+VIM y NVIM. Hoy en día ya no difieren tanto como antes.
+
+FUENTE DEL VÍDEO:
+- Neovim Vs Vim: What's The Difference in 2020
+www.youtube.com/watch?v=K-hP727tv6E
+
+Para instalar Neovim, seguí un tutorial en el siguiente video:
+ - [Canal YT - Julio Mendez, 20 de abril del 2020]
+ - Instalar Neovim y Plugins en Windows 10
+ https://www.youtube.com/watch?v=9feYAyL3ZT0&ab_channel=JulioMendeza
+
+ -> PASOS:
+ 1.- Descargar e instalar Chocolatey, un Gestor de paquetes para Windows.
+ 	- Este permitirá descargar e instalar NVIM desde la terminal de
+	Windows, que en este caso es WINDOWS POWERSHELL.
+     - Para instalarlo está el siguiente enlace:
+     	https://chocolatey.org/install
+
+
+     - Para no tener un Warning de que no tenemos un perfil creado,
+     	habrá que crearlo ejecutando el siguiente comando:
+
+		if (!(Test-Path -Path $PROFILE)) {
+		  New-Item -ItemType File -Path $PROFILE -Force
+		  }
+
+     - Ahí mismo dice que hay que ingresar los siguientes comandos en la
+	terminal:
+
+	Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+
+2.- Ya instalado Chocolatey, podemos proceder a instalar NVIM. El comando
+     para hacerlo se encuentra en el siguiente enlace:
+
+	https://chocolatey.org/search?q=nvim
+
+     - Aunque nosotros podemos encontrar la instalación fácilmente, ya que
+     el sitio web de Chocolatey tiene una barra de búsqueda en donde podremos
+     ingresar el nombre del paquete a instalar y encontraremos el comando.
+     En este caso se instala de la siguiente manera:
+
+     	choco install neovim
+
+     - Cuando presionemos Enter, comenzará la instalación, y en un punto
+     preguntará que si queremos instalar los paquetes. Para esto presionamos
+     la tecla 'Y' y damos enter, pero aceptaríamos de uno por uno. Para
+     aceptarlos todos hay que presionar la tecla 'A', así ya no estará pregunte
+     y pregunte.
+
+3.- Una vez instalado NVIM hay que instalar vim-plug, que es un gestor de paquetes
+de Vim, lo que facilita la instalación de Plugins tanto en VIM como en NVIM.
+ - Las instrucciones las encontraremos en el sitio web del repositorio:
+
+	https://github.com/junegunn/vim-plug
+
+ - Aunque siguiendo esas instrucciones no funcionó el plugin, por lo que tuve que
+ seguir unas diferentes que ahora pondré. La razón por la que esto sucede es porque
+ se crea la carpeta '~/AppData/Local/nvim-data/site/autoload/aquí el plugin', cuando
+ debería ser: '~/AppData/Local/nvim/' nada más, y dentro el 'autoload'.
+ - El error que lanzaba cuando utilizaba el ':PlugInstall' (comando para instalar
+ los plugins indicados en el 'init.vim'), salía que 'no era una orden del editor'.
+
+ - Por eso seguí las instrucciones que pondré a continuación. Estas se encontraban
+ en un comentario del video del cual seguí las instrucciones de instalación:
+
+ 	- En el Windows Powershell ejecutar:
+	1.- md ~\AppData\Local\nvim\autoload
+	2.- $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	3.-
+		(New-Object Net.WebClient).DownloadFile(
+		  $uri,
+		    $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(
+		        "~\AppData\Local\nvim\autoload\plug.vim"
+			  )
+			  )
+
+- Siguiendo estas instrcciones, el Plugin se instala con normalidad.
+
+4.- Ya instalado el 'vim-plug', hay que indicar los paquetes a instalar
+en el archivo 'init.vim', que se encuentra en la carpeta de 'nvim/'. Por default
+este archivo no aparece, por lo que tendremos que crearlo de la siguiente manera
+en el Powershell:
+
+	New-Item 'init.vim' -FileType File
+
+ - De esta forma habremos creado el archivo que necesitamos. Para comprobarlo
+ podemos ver el tipo de archivo en el explorador de archivos en esa carpeta.
+ - Para abrir el explorador de archivos en la carpeta actual del Powershell:
+
+ 	ii .
+
+ - Ya en la carpeta podremos verificar que el tipo de archivo sí sea
+ 'VIM File' y no 'Plain Text'.
+
+5.- Habiendo creado el 'init.vim', hay que indicar los paquetes a instalar.
+ En este caso instalamos el 'Minimalist', que es un coloreador de sintaxis
+en cadenas, urls, y demás.
+ - URL: https://github.com/dikiaap/minimalist
+
+ - Hay que acceder a:
+
+	cd '~/AppData/Local/nvim/'
+
+ - Y luego abrir el archivo 'init.vim' con nvim:
+
+ 	nvim init.vim
+
+ - Después hay que entrar en el modo de escritura:
+
+	1.- Presionar la tecla 'esc'.
+	2.- Presionar la tecla 'a'.
+
+ - Estando ahí hay que indicar cuáles plugin instalar siguiendo la
+ siguiente nomenclatura:
+
+ 	" call plug#begin(Aquí se pone el directorio en donde quieres instalar los plugin)
+	call plug#begin('~/AppData/Local/nvim/plugged')
+
+
+	" Paquetes a instalar. En este caso el minimalist:
+	Plug 'dikiaap/minimalist'
+
+	call plug#end()
+
+	" Aquí van instrucciones que se indiquen para después de la
+	" instalación, que en este caso son indicadas en el sitio
+	" del repositorio, y son:
+	set t_Co=256
+	syntax on
+	colorscheme minimalist
+
+ - Habiendo hecho esto, hay que guardar el archivo y volver a abrirlo
+ para que se refresquen los cambios:
+
+	1.- Esc
+	2.- :wq
+		':' Activa el modo para insertar comandos.
+		'w' Escribe los cambios realizados.
+		'q' Sale del archivo a la PowerShell (o a tu terminal).
+
+ - Luego de haberlo guardado, hay que abrir el archivo.
+
+ 	nvim init.vim
+
+6.- Ahora, hay que instalar los paquetes indicados (en este caso el 'Minimalist').
+ - Esto lo logramos ejecutando lo siguiente:
+
+ 	1.- Esc
+	2.- :PlugInstall
+
+7.- Después de esto el paquete se habrá instalado.
+8.- Con esto concluyo el tutorial, aunque aún queda ajustar la configuración
+de NVIM como la tengo en el Vim de Cygwin, pero necesito investigar cómo hacerlo.
+Supongo que la configuración sigue la misma sintaxis, pero necesito ver
+en dónde se guarda, ya que en vim la configuración se indica en '~/.vimrc'.
+
+ - [TERMINÉ DE EDITAR EL TUTORIAL HASTA AQUÍ A LAS 12:46AM (00:46AM)]
+
+[Jueves, 10/DIC/2020 01:01AM]
+9.- Ya vi que la configuración también se pone en el 'nvim/init.vim', por lo
+que intentaré poner ahí la configuración del Vim de mi Cygwin.
