@@ -135,6 +135,18 @@
         "hidden": false,
         "name": "Developer PowerShell for VS 2019",
         "source": "Windows.Terminal.VisualStudio"
+      },
+      {
+        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+        "hidden": false,
+        "name": "Ubuntu-20.04",
+        "source": "Windows.Terminal.Wsl",
+
+        "font": {
+          "face": "CaskaydiaCove NF"
+        },
+        "padding": "8",
+        "colorScheme": "Blue Matrix"
       }
     ]
   },
