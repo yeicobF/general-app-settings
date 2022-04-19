@@ -105,6 +105,14 @@
         }
       },
       {
+        "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+        "hidden": false,
+        "name": "Git Bash",
+        "source": "Git",
+        "acrylicOpacity": 0.90000000000000002,
+        "colorScheme": "Purple Rain"
+      },
+      {
         "commandline": "%SystemRoot%\\System32\\cmd.exe",
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "hidden": false,
@@ -115,14 +123,6 @@
         "hidden": false,
         "name": "Azure Cloud Shell",
         "source": "Windows.Terminal.Azure"
-      },
-      {
-        "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
-        "hidden": false,
-        "name": "Git Bash",
-        "source": "Git",
-        "acrylicOpacity": 0.90000000000000002,
-        "colorScheme": "Purple Rain"
       },
       {
         "guid": "{6dbbf5d5-8d53-574d-bdd8-71d0b2bc808c}",
