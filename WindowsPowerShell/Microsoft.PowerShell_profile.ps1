@@ -6,7 +6,12 @@
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\spaceship.omp.json" | Invoke-Expression
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\tokyonight_storm.omp.json" | Invoke-Expression
 
-# Autocompletado para winget.
+# https://github.com/dahlbyk/posh-git#using-posh-git
+Import-Module posh-git
+
+# https://ohmyposh.dev/docs/segments/git
+# $env:POSH_GIT_ENABLED = $true
+
 # 
 # Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 #     param($wordToComplete, $commandAst, $cursorPosition)

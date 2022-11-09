@@ -42,3 +42,10 @@ Tema para Powershell. Algo como lo que se puede hacer con `oh-my-zsh`.
 - **`json`**
 - **`material`**
 - **`spaceship`**
+
+## posh-git
+
+Muestra información de Git en la terminal y permite el autocompletado de
+comandos.
+
+> [GitHub | posh-git](https://github.com/dahlbyk/posh-git)
