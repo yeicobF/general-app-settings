@@ -12,13 +12,13 @@
 Autocompletado de comandos y parámetros. Algo como lo que se puede hacer con el
 autocompletado de `zsh`.
 
-- **`[PowerShell`** Gallery |
+- [PowerShell Gallery |
   PSReadLine](https://www.powershellgallery.com/packages/PSReadLine/)
-- **`[YT`** | Transforming PowerShell experience with
+- [YT | Transforming PowerShell experience with
   PSReadLine](https://youtu.be/Q11sSltuTE0)
-- **`[Stack`** Overflow | Windows Terminal/Powershell
+- [Stack Overflow | Windows Terminal/Powershell
   Intellisense](https://stackoverflow.com/questions/63208417/windows-terminal-powershell-intellisense)
-- **`[GitHub`** | PSReadLine](https://github.com/PowerShell/PSReadLine)
+- [GitHub | PSReadLine](https://github.com/PowerShell/PSReadLine)
 
 ### Uso
 
