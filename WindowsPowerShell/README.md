@@ -1,5 +1,12 @@
 # Powershell
 
+- [PSReadLine](#psreadline)
+  - [Uso](#uso)
+- [oh-my-posh](#oh-my-posh)
+  - [Temas favoritos](#temas-favoritos)
+  - [Formato personalizado](#formato-personalizado)
+- [posh-git](#posh-git)
+
 ## PSReadLine
 
 Autocompletado de comandos y parámetros. Algo como lo que se puede hacer con el
