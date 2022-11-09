@@ -43,6 +43,53 @@ Tema para Powershell. Algo como lo que se puede hacer con `oh-my-zsh`.
 - **`material`**
 - **`spaceship`**
 
+### Formato personalizado
+
+Lo utilicé para mostrar la hora actual. Modifiqué el tema `tokyonight_storm` y
+añadí el formato de hora que quería mostrar. Tal como se menciona en la
+documentación, se utiliza el
+[golang standard](https://yourbasic.org/golang/format-parse-string-time-date-example/).
+
+En mi caso, definí una plantilla para la hora siguiendo el estándar: `03:04PM`.
+Dentro `blocks.segments` definí el formato. Además, utilicé un color que estaba
+definido en el tema.
+
+```json
+{
+  "palette": {
+    ...,
+    "terminal-yellow": "#e0af68",
+    ...
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "background": "transparent",
+          "foreground": "p:terminal-blue",
+          "template": "\u279c "
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "p:terminal-yellow",
+          "properties": {
+            "time_format": "03:04PM"
+          },
+          "template": "{{ .CurrentDate | date .Format }} "
+        },
+        ...
+      ]
+    }
+  ]
+}
+```
+
+![Formato de hora](./images/oh-my-posh-time.png)
+
 ## posh-git
 
 Muestra información de Git en la terminal y permite el autocompletado de
