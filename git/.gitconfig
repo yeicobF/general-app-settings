@@ -1,0 +1,18 @@
+[alias]
+	ci = commit
+	aa = add -A
+	co-compact-diff = show --compact-summary
+	sh-co-changes = show --color --pretty=format:%b
+	sh-aliases = config --get-regexp ^alias
+	ac = !git add -A && git commit
+	acp = !git add -A && git commit && git push
+	st = status
+	acmp = "!git add -A && git commit -m \\'\\' && git push #"
+	ba = branch -a
+	sc = switch -c
+	sh-conf-origin = config --list --show-origin --show-scope
+[user]
+	email = 
+	name = 
+[push]
+	autoSetupRemote = true
